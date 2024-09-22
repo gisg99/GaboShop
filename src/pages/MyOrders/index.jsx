@@ -1,9 +1,10 @@
+import Layout from "../../components/Layout";
 
 function MyOrders(){
     return(
-        <div className='h-svh w-svw flex justify-center items-center bg-blue-900 text-white'>
+        <Layout>
             MyOrders
-        </div>
+        </Layout>
     );
 }
 
