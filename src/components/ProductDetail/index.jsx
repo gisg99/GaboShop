@@ -20,7 +20,7 @@ const ProductDetail = () => {
                 <span className="font-semibold text-3xl">${productDetail.price}</span>
                 <div onClick={() => setCount(count + 1)} className="px-4 py-2 bg-[#2b0c68] text-white flex gap-2 rounded-full transition-all ease-out duration-500 cursor-pointer hover:bg-[#6200ca]">
                     <ShoppingCartIcon className="h-6 w-6 inline-block"/>
-                    <span>Agregar al carrito</span>
+                    <span>Agregar al carrito</span> 
                 </div>
             </aside>
         )
