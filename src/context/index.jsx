@@ -4,13 +4,14 @@ export const ShoppingCartContext = createContext()
 
 export const ShoppingCartProvider = ({ children }) => {
     const [count, setCount] = useState(0)
-    console.log(count);
-    
+    const [productDetail, setProductDetail] = useState(null)
 
     return (
         <ShoppingCartContext.Provider value={{
             count,
-            setCount
+            setCount,
+            productDetail,
+            setProductDetail
         }}>
             {children}
         </ShoppingCartContext.Provider>

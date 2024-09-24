@@ -1,12 +1,13 @@
 import { NavLink } from "react-router-dom"
 import { useContext } from "react"
 import { ShoppingCartContext } from "../../context"
+import { ShoppingCartIcon } from "@heroicons/react/24/outline"
 
 const NavBar = () => {
     const { count } = useContext(ShoppingCartContext)
     const activeStyle = 'bg-white text-black py-1 px-3 rounded-full'
     return(
-        <nav className="fixed top-0 z-10 w-svw p-8 flex justify-between items-center bg-gabo text-white">
+        <nav className="fixed top-0 z-20 w-svw p-8 flex justify-between items-center bg-gabo text-white">
             <ul className="flex items-center gap-2">
                 <li>
                     <h5 className="quantico text-extra font-bold text-3xl">💎GaboShop</h5>
@@ -79,8 +80,8 @@ const NavBar = () => {
                         Sign in
                     </NavLink>
                 </li>
-                <li>
-                    🛒{count}
+                <li className="flex gap-1 py-1 px-3 rounded-full hover:bg-white hover:text-black">
+                    <ShoppingCartIcon className="h-6 w-6 inline-block"/>{count}
                 </li>
             </ul>
         </nav>
