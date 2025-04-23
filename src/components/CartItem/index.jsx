@@ -1,9 +1,9 @@
 import React, { useContext } from "react"
 import { ShoppingCartContext } from "../../context"
-import { PlusIcon } from "@heroicons/react/24/outline"
+import { PlusIcon, MinusIcon } from "@heroicons/react/24/outline"
 
 function Card({ item }) {
-  const { setCartItems, formatPrice } = useContext(ShoppingCartContext)
+  const { addItemToCart, removeCartItem, formatPrice } = useContext(ShoppingCartContext)
   const {
     setProductDetail
   } = useContext(ShoppingCartContext)
@@ -15,7 +15,12 @@ function Card({ item }) {
             <h3>{item.title}</h3>
             <h5 className="text-[12px] text-[#A7A7A7]">{item.category}</h5>
             <div className="flex justify-between w-full items-center">
-                <h3>Cantidad: {item.quantity}</h3>
+                <div className="flex gap-2 items-center">
+                    <h3>Cantidad:</h3>
+                    <MinusIcon onClick={() => removeCartItem(item)} className="h-6 w-6 p-1 rounded-full cursor-pointer bg-black text-white"/>
+                    <h3>{item.quantity}</h3>
+                    <PlusIcon onClick={() => addItemToCart(item)} className="h-6 w-6 p-1 rounded-full cursor-pointer bg-black text-white"/>
+                </div>
                 <h2>{formatPrice(item.price)}</h2>
             </div>
         </div>

@@ -2,16 +2,19 @@ import { NavLink } from "react-router-dom"
 import { useContext } from "react"
 import { ShoppingCartContext } from "../../context"
 import { ShoppingCartIcon } from "@heroicons/react/24/outline"
+import MyCart from "../MyCart"
 
 const NavBar = () => {
     const { 
         cartItems,
+        isCartOpen,
         setIsCartOpen 
     } = useContext(ShoppingCartContext)
 
     const activeStyle = 'bg-white text-black py-1 px-3 rounded-full'
     return(
         <nav className="fixed top-0 z-20 w-svw p-8 flex justify-between items-center bg-gabo text-white">
+            {isCartOpen && <MyCart />}
             <ul className="flex items-center gap-2">
                 <li>
                     <h5 className="quantico text-extra font-bold text-3xl">💎GaboShop</h5>
