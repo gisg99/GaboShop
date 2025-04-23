@@ -4,7 +4,11 @@ import { ShoppingCartContext } from "../../context"
 import { ShoppingCartIcon } from "@heroicons/react/24/outline"
 
 const NavBar = () => {
-    const { count } = useContext(ShoppingCartContext)
+    const { 
+        cartItems,
+        setIsCartOpen 
+    } = useContext(ShoppingCartContext)
+
     const activeStyle = 'bg-white text-black py-1 px-3 rounded-full'
     return(
         <nav className="fixed top-0 z-20 w-svw p-8 flex justify-between items-center bg-gabo text-white">
@@ -80,8 +84,8 @@ const NavBar = () => {
                         Sign in
                     </NavLink>
                 </li>
-                <li className="flex gap-1 py-1 px-3 rounded-full hover:bg-white hover:text-black">
-                    <ShoppingCartIcon className="h-6 w-6 inline-block"/>{count}
+                <li onClick={() => setIsCartOpen((prev) => !prev)} className="flex gap-1 py-1 px-3 rounded-full hover:bg-white hover:text-black">
+                    <ShoppingCartIcon className="h-6 w-6 inline-block"/>{cartItems.length}
                 </li>
             </ul>
         </nav>

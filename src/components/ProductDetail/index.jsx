@@ -4,10 +4,10 @@ import { ShoppingCartIcon, PlusIcon } from "@heroicons/react/24/outline"
 
 const ProductDetail = () => {
     const { 
-        count,
-        setCount,
+        setCartItems,
         productDetail,
-        setProductDetail
+        setProductDetail,
+        addItemToCart,
     } = useContext(ShoppingCartContext)
 
     return (
@@ -18,7 +18,7 @@ const ProductDetail = () => {
                 <img src={productDetail.image} alt="Imagen del producto"/>
                 <p>{productDetail.description}</p>
                 <span className="font-semibold text-3xl">${productDetail.price}</span>
-                <div onClick={() => setCount(count + 1)} className="px-4 py-2 bg-[#2b0c68] text-white flex gap-2 rounded-full transition-all ease-out duration-500 cursor-pointer hover:bg-[#6200ca]">
+                <div onClick={() => addItemToCart(productDetail)} className="px-4 py-2 bg-[#2b0c68] text-white flex gap-2 rounded-full transition-all ease-out duration-500 cursor-pointer hover:bg-[#6200ca]">
                     <ShoppingCartIcon className="h-6 w-6 inline-block"/>
                     <span>Agregar al carrito</span> 
                 </div>
